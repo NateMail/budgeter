@@ -9,6 +9,7 @@ import SignIn from './auth/components/SignIn'
 import SignOut from './auth/components/SignOut'
 import ChangePassword from './auth/components/ChangePassword'
 import Monthlies from './Monthlies'
+import Bill from './bills'
 
 import Alert from 'react-bootstrap/Alert'
 
@@ -58,6 +59,9 @@ class App extends Component {
           )} />
           <AuthenticatedRoute user={user} path='/monthlies' render={() => (
             <Monthlies user={user}/>
+          )} />
+          <AuthenticatedRoute user={user} path='/bills' render={() => (
+            <Bill user={user}/>
           )} />
         </main>
       </React.Fragment>
