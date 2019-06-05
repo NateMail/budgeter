@@ -12,6 +12,7 @@ import Incomes from './components/routes/Incomes'
 import IncomeCreate from './components/routes/IncomeCreate'
 import IncomeEdit from './components/routes/IncomeEdit'
 import BillCreate from './components/routes/BillCreate'
+import BillEdit from './components/routes/BillEdit'
 import Bills from './components/routes/Bills'
 
 import Alert from 'react-bootstrap/Alert'
@@ -69,10 +70,13 @@ class App extends Component {
           <AuthenticatedRoute user={user} exact path='/monthlies/:id' render={({ match }) => (
             <IncomeEdit user={user} match={ match } alert={this.alert}/>
           )} />
-          <AuthenticatedRoute user={user} path='/create-bills' render={() => (
+          <AuthenticatedRoute user={user} exact path='/create-bills' render={() => (
             <BillCreate user={user} alert={this.alert}/>
           )} />
-          <AuthenticatedRoute user={user} path='/bills' render={() => (
+          <AuthenticatedRoute user={user} exact path='/bills/:id' render={({ match }) => (
+            <BillEdit match={ match } user={user}/>
+          )} />
+          <AuthenticatedRoute user={user} exact path='/bills' render={() => (
             <Bills user={user}/>
           )} />
         </main>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 // import { Link } from 'react-router-dom'
 import axios from 'axios'
-import { withRouter, Redirect } from 'react-router-dom'
+import { withRouter, Redirect, Link } from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
 
 import apiUrl from '../../apiConfig'
@@ -59,6 +59,15 @@ class Bills extends Component {
         >
         Delete
         </Button>
+        <Link to={`/bills/${bill.id}`} >
+          <Button
+            variant="info"
+            type="button"
+            className="m-1"
+          >
+        Update
+          </Button>
+        </Link>
       </li>
     ))
 
