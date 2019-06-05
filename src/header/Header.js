@@ -11,9 +11,9 @@ const authenticatedOptions = (
     <Link to="/change-password">Change Password</Link>
     <Link to="/sign-out">Sign Out</Link>
     <Link to="/monthlies">Incomes</Link>
-    <Link to="/monthlies/:id">Income</Link>
     <Link to="/create-monthlies">Income Create</Link>
     <Link to="/bills">Bills</Link>
+    <Link to="/create-bills">Create Bills</Link>
   </React.Fragment>
 )
 
