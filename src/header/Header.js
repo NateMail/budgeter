@@ -1,5 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+// import Incomes from '../components/routes/Incomes'
+// import Income from '../components/routes/Income'
+// import IncomeCreate from '../components/routes/IncomeCreate'
 
 import './Header.scss'
 
@@ -7,7 +10,9 @@ const authenticatedOptions = (
   <React.Fragment>
     <Link to="/change-password">Change Password</Link>
     <Link to="/sign-out">Sign Out</Link>
-    <Link to="/monthlies">Income</Link>
+    <Link to="/monthlies">Incomes</Link>
+    <Link to="/monthlies/:id">Income</Link>
+    <Link to="/create-monthlies">Income Create</Link>
     <Link to="/bills">Bills</Link>
   </React.Fragment>
 )
