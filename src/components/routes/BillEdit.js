@@ -68,7 +68,7 @@ class BillEdit extends Component {
     const { updated } = this.state
 
     if (updated) {
-      return <Redirect to={'/bills'} />
+      return <Redirect to={'/monthlies'} />
     }
 
     return (
@@ -82,7 +82,7 @@ class BillEdit extends Component {
             name="name"
             required
             onChange={this.handleChange}
-            placeholder="Enter Bill Name"
+            placeholder='Enter new bill name'
           />
         </Form.Group>
         <Form.Group controlId="billAmount">
@@ -92,7 +92,7 @@ class BillEdit extends Component {
             value={this.amount}
             name="amount"
             required
-            placeholder="Enter the bills amount"
+            placeholder="Enter new bill amount"
             onChange={this.handleChange}
           />
         </Form.Group>

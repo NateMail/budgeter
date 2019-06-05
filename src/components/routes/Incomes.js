@@ -42,12 +42,13 @@ class Incomes extends Component {
       .then(() => {
         this.setState({ deleted: true })
       })
+      .then(() => this.props.history.push('/monthlies'))
       .catch(console.error)
   }
 
   render () {
     const monthly = this.state.monthly.map(monthly => (
-      <li key={monthly.id}>
+      <div key={monthly.id}>
         <h3> $ {monthly.income} </h3>
         <h5>  Deposited on: {monthly.deposited} </h5>
         <Button
@@ -67,7 +68,7 @@ class Incomes extends Component {
         Update
           </Button>
         </Link>
-      </li>
+      </div>
     ))
 
     const { deleted } = this.state
@@ -81,6 +82,25 @@ class Incomes extends Component {
       <div>
         <h3>Your Monthly Income</h3>
         <ul>{monthly}</ul>
+        <Link to={'/bills'} >
+          <Button
+            variant="success"
+            type="button"
+            className="m-1"
+          >
+          Bills
+          </Button>
+        </Link>
+        <br />
+        <Link to={'/create-bills'} >
+          <Button
+            variant="info"
+            type="button"
+            className="m-1"
+          >
+          Add Bills
+          </Button>
+        </Link>
       </div>
     )
   }

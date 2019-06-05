@@ -35,7 +35,7 @@ class IncomeCreate extends Component {
         monthly: response.data.monthly
       }))
       .then(() => this.props.alert(`${this.state.income} has been added!`, 'success'))
-      .then(() => this.props.history.push('/'))
+      .then(() => this.props.history.push('/monthlies'))
       .catch(() => {
         this.props.alert('Whoops! Failed to add your income. Please try again.', 'danger')
         this.setState({

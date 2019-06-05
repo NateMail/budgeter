@@ -37,7 +37,7 @@ class BillCreate extends Component {
         bill: response.data.bill
       }))
       .then(() => this.props.alert(`${this.state.name} has been added!`, 'success'))
-      .then(() => this.props.history.push('/'))
+      .then(() => this.props.history.push('/monthlies'))
       .catch(() => {
         this.props.alert('Whoops! Failed to add your bill. Please try again.', 'danger')
         this.setState({

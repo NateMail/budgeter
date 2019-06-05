@@ -88,7 +88,7 @@ class Bills extends Component {
     }
     return (
       <div>
-        <h3>All the Incomes</h3>
+        <h3>All your Bills</h3>
         <ul>{bill}</ul>
       </div>
     )
