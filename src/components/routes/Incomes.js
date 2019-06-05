@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 import apiUrl from '../../apiConfig'
@@ -31,13 +31,14 @@ class Incomes extends Component {
   render () {
     const monthly = this.state.monthly.map(monthly => (
       <li key={monthly.id}>
-        <Link to={'/monthlies/' + monthly.id}>{monthly.income ? monthly.income : 'Unknown Income'}</Link>
+        <h3>  {monthly.income} </h3>
+        <h5>  {monthly.deposited} </h5>
       </li>
     ))
     return (
       <div>
         <h3>All the Incomes</h3>
-        <li> {monthly} </li>
+        <ul>{monthly}</ul>
       </div>
     )
   }
