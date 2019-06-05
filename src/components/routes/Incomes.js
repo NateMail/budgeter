@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 // import { Link } from 'react-router-dom'
 import axios from 'axios'
-import { withRouter, Redirect } from 'react-router-dom'
+import { withRouter, Redirect, Link } from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
 
 import apiUrl from '../../apiConfig'
@@ -48,8 +48,8 @@ class Incomes extends Component {
   render () {
     const monthly = this.state.monthly.map(monthly => (
       <li key={monthly.id}>
-        <h3>  {monthly.income} </h3>
-        <h5>  {monthly.deposited} </h5>
+        <h3> $ {monthly.income} </h3>
+        <h5>  Deposited on: {monthly.deposited} </h5>
         <Button
           variant="danger"
           type="button"
@@ -58,18 +58,19 @@ class Incomes extends Component {
         >
         Delete
         </Button>
+        <Link to={`/monthlies/${monthly.id}`} >
+          <Button
+            variant="info"
+            type="button"
+            className="m-1"
+          >
+        Update
+          </Button>
+        </Link>
       </li>
     ))
 
     const { deleted } = this.state
-
-    if (!monthly) {
-      return (
-        <div>
-          <p>Loading...</p>
-        </div>
-      )
-    }
 
     if (deleted) {
       return <Redirect to={
@@ -78,7 +79,7 @@ class Incomes extends Component {
     }
     return (
       <div>
-        <h3>All the Incomes</h3>
+        <h3>Your Monthly Income</h3>
         <ul>{monthly}</ul>
       </div>
     )

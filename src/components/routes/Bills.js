@@ -49,7 +49,7 @@ class Bills extends Component {
     const bill = this.state.bill.map(bill => (
       <li key={bill.id}>
         <h3>  {bill.name} </h3>
-        <h5>  {bill.amount} </h5>
+        <h5> $ {bill.amount} </h5>
         <h5>  {bill.due}  </h5>
         <Button
           variant="danger"

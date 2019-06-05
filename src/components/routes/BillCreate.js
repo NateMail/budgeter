@@ -78,7 +78,7 @@ class BillCreate extends Component {
         <Form.Group controlId="billAmount">
           <Form.Label>Amount</Form.Label>
           <Form.Control
-            type="decimal"
+            type="number"
             value={amount}
             name="amount"
             required

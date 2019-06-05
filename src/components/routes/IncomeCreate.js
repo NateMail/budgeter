@@ -60,10 +60,10 @@ class IncomeCreate extends Component {
     return (
       <Form className="form" onSubmit={this.handleSubmit}>
         <h2>Create Income</h2>
-        <Form.Group controlId="monthlyIncome">
-          <Form.Label>Monthly Income</Form.Label>
+        <Form.Group controlId="MonthlyIncome">
+          <Form.Label>Monthly Income $</Form.Label>
           <Form.Control
-            type="decimal"
+            type="number"
             value={income}
             name="income"
             required

@@ -9,8 +9,8 @@ import SignIn from './auth/components/SignIn'
 import SignOut from './auth/components/SignOut'
 import ChangePassword from './auth/components/ChangePassword'
 import Incomes from './components/routes/Incomes'
-// import Income from './components/routes/Income'
 import IncomeCreate from './components/routes/IncomeCreate'
+import IncomeEdit from './components/routes/IncomeEdit'
 import BillCreate from './components/routes/BillCreate'
 import Bills from './components/routes/Bills'
 
@@ -60,11 +60,14 @@ class App extends Component {
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword alert={this.alert} user={user} />
           )} />
-          <AuthenticatedRoute user={user} path='/monthlies' render={() => (
+          <AuthenticatedRoute user={user} exact path='/monthlies' render={() => (
             <Incomes user={user} alert={this.alert}/>
           )} />
           <AuthenticatedRoute user={user} path='/create-monthlies' render={() => (
             <IncomeCreate user={user} alert={this.alert}/>
+          )} />
+          <AuthenticatedRoute user={user} exact path='/monthlies/:id' render={({ match }) => (
+            <IncomeEdit user={user} match={ match } alert={this.alert}/>
           )} />
           <AuthenticatedRoute user={user} path='/create-bills' render={() => (
             <BillCreate user={user} alert={this.alert}/>
