@@ -84,7 +84,7 @@ class Incomes extends Component {
       <div>
         <h3>Your Monthly Income</h3>
         <ul>{monthly}</ul>
-        <h4>Your remain income is: ${remainingIncome}</h4>
+        <h4>Your remaining income is: ${remainingIncome}</h4>
         <h4>Your Bills</h4>
         <ul>{bill}</ul>
         <Link to={'/bills'} >
