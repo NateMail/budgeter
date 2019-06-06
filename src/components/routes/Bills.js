@@ -88,6 +88,14 @@ class Bills extends Component {
       <div>
         <h3>All your Bills</h3>
         <ul>{bill}</ul>
+        <Link to={'/monthlies'} >
+          <Button
+            variant="dark"
+            type="button"
+            className="m-1"
+          > Back
+          </Button>
+        </Link>
       </div>
     )
   }
