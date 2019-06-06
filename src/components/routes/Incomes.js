@@ -80,7 +80,6 @@ class Incomes extends Component {
     monthlyincome = Math.floor(monthlyincome * 100) / 100
 
     const remainingIncome = monthlyincome - total
-    console.log(remainingIncome)
     return (
       <div>
         <h3>Your Monthly Income</h3>
