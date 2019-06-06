@@ -43,7 +43,6 @@ class Incomes extends Component {
       .then(() => this.props.history.push('/monthlies'))
       .catch(console.error)
   }
-
   render () {
     const monthly = this.state.monthly.map(monthly => (
       <div key={monthly.id}>

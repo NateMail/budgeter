@@ -64,7 +64,7 @@ class App extends Component {
           <AuthenticatedRoute user={user} exact path='/monthlies' render={() => (
             <Incomes user={user} alert={this.alert}/>
           )} />
-          <AuthenticatedRoute user={user} path='/create-monthlies' render={() => (
+          <AuthenticatedRoute user={user} exact path='/create-monthlies' render={() => (
             <IncomeCreate user={user} alert={this.alert}/>
           )} />
           <AuthenticatedRoute user={user} exact path='/monthlies/:id' render={({ match }) => (

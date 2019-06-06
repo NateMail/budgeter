@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { withRouter } from 'react-router-dom'
+import { withRouter, Redirect } from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import axios from 'axios'
@@ -11,7 +11,9 @@ class IncomeCreate extends Component {
 
     this.state = {
       income: '',
-      deposited: ''
+      deposited: '',
+      monthly: [],
+      create: false
     }
   }
 
@@ -31,9 +33,6 @@ class IncomeCreate extends Component {
         }
       }
     })
-      .then(response => this.setState({
-        monthly: response.data.monthly
-      }))
       .then(() => this.props.alert(`${this.state.income} has been added!`, 'success'))
       .then(() => this.props.history.push('/monthlies'))
       .catch(() => {
@@ -45,6 +44,27 @@ class IncomeCreate extends Component {
       })
   }
 
+  componentDidMount () {
+    axios({
+      url: `${apiUrl}/monthlies`,
+      method: 'GET',
+      headers: {
+        'Authorization': `Token token=${this.props.user.token}`
+      }
+    })
+      .then(res => {
+        this.setState({ monthly: res.data.monthlies })
+      })
+      .then(res => {
+        if (this.state.monthly.length > 0) {
+          this.setState({
+            create: true
+          })
+        }
+      })
+      .catch(console.error)
+  }
+
   handleChange = event => this.setState({
     [event.target.name]: event.target.value
   })
@@ -53,10 +73,12 @@ class IncomeCreate extends Component {
     income: '',
     deposited: ''
   })
-
   render () {
-    const { income, deposited } = this.state
+    const { income, deposited, create } = this.state
 
+    if (create) {
+      return <Redirect to={'/monthlies'} />
+    }
     return (
       <Form className="form" onSubmit={this.handleSubmit}>
         <h2>Create Income</h2>
@@ -87,7 +109,7 @@ class IncomeCreate extends Component {
           type="submit"
           className="m-1"
         >
-          Submit
+            Submit
         </Button>
         <Button
           variant="danger"
@@ -95,7 +117,7 @@ class IncomeCreate extends Component {
           className="m-1"
           onClick={this.resetForm}
         >
-          Reset
+            Reset
         </Button>
       </Form>
     )
