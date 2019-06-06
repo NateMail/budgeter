@@ -84,10 +84,18 @@ class Bills extends Component {
         { pathname: '/monthlies', state: { msg: 'Bill Successfully deleted!' } }
       } />
     }
+
+    let total = 0
+    this.state.bill.forEach(bill => {
+      total += Math.abs(bill.amount)
+    })
+    total = Math.floor(total * 100) / 100
+
     return (
       <div>
         <h3>All your Bills</h3>
         <ul>{bill}</ul>
+        <h4>Your total amount is: ${total}</h4>
       </div>
     )
   }
