@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-// import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { withRouter, Redirect, Link } from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
@@ -25,7 +24,6 @@ class Incomes extends Component {
       }
     })
       .then(res => {
-        console.log(res)
         this.setState({ monthly: res.data.monthlies })
       })
       .catch(console.error)

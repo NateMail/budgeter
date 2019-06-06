@@ -27,19 +27,15 @@ class IncomeEdit extends Component {
       }
     })
       .then(res => {
-        console.log(res)
         this.setState({ monthly: res.data.monthly })
       })
       .catch(console.error)
   }
 
   handleChange = event => {
-    // access and update state
-    console.log('changeing stuff....', event.target.value)
     const updatedField = {
       [event.target.name]: event.target.value
     }
-    console.log(updatedField)
     const editedIncome = Object.assign(this.state.monthly, updatedField)
     this.setState({ monthly: editedIncome })
   }
@@ -57,10 +53,6 @@ class IncomeEdit extends Component {
       }
     })
     this.setState({ updated: true })
-    // .then(res => {
-    //   this.setState({ updated: true })
-    // })
-    // .catch(console.error)
   }
 
   render () {
