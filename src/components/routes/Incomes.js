@@ -96,7 +96,6 @@ class Incomes extends Component {
           Edit Bills
           </Button>
         </Link>
-        <br />
         <Link to={'/create-bills'} >
           <Button
             variant="info"
