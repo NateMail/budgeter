@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Redirect } from 'react-router-dom'
+import { Redirect, Link } from 'react-router-dom'
 import axios from 'axios'
 import apiUrl from '../../apiConfig'
 import Button from 'react-bootstrap/Button'
@@ -94,14 +94,14 @@ class IncomeEdit extends Component {
         >
           Submit
         </Button>
-        <Button
-          variant="danger"
-          type="button"
-          className="m-1"
-          onClick={this.resetForm}
-        >
-          Reset
-        </Button>
+        <Link to={'/monthlies'} >
+          <Button
+            variant="dark"
+            type="button"
+            className="m-1"
+          > Back
+          </Button>
+        </Link>
       </Form>
     )
   }

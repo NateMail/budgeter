@@ -106,14 +106,6 @@ class BillEdit extends Component {
         >
           Submit
         </Button>
-        <Button
-          variant="danger"
-          type="button"
-          className="m-1"
-          onClick={this.resetForm}
-        >
-          Reset
-        </Button>
       </Form>
     )
   }

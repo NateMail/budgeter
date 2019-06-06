@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { withRouter } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import axios from 'axios'
@@ -112,6 +112,14 @@ class BillCreate extends Component {
         >
           Reset
         </Button>
+        <Link to={'/monthlies'} >
+          <Button
+            variant="dark"
+            type="button"
+            className="m-1"
+          > Back
+          </Button>
+        </Link>
       </Form>
     )
   }
