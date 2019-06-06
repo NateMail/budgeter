@@ -11,8 +11,7 @@ class Bills extends Component {
 
     this.state = {
       bill: [],
-      deleted: false,
-      monthly: []
+      deleted: false
     }
   }
 
@@ -43,19 +42,6 @@ class Bills extends Component {
       })
       .catch(console.error)
   }
-
-  income =
-  axios({
-    url: `${apiUrl}/monthlies`,
-    method: 'GET',
-    headers: {
-      'Authorization': `Token token=${this.props.user.token}`
-    }
-  })
-    .then(res => {
-      this.setState({ monthly: res.data.monthlies })
-    })
-    .catch(console.error)
 
   render () {
     const bill = this.state.bill.map(bill => (
@@ -98,25 +84,10 @@ class Bills extends Component {
         { pathname: '/monthlies', state: { msg: 'Bill Successfully deleted!' } }
       } />
     }
-
-    let total = 0
-    this.state.bill.forEach(bill => {
-      total += Math.abs(bill.amount)
-    })
-    total = Math.floor(total * 100) / 100
-
-    let monthlyincome = this.state.monthly.map(monthly => {
-      return Math.abs(monthly.income)
-    })
-    monthlyincome = Math.floor(monthlyincome * 100) / 100
-
-    const remainingIncome = monthlyincome - total
     return (
       <div>
         <h3>All your Bills</h3>
         <ul>{bill}</ul>
-        <h4>The total amount of your bills is {total}</h4>
-        <h4>Your remaining income is: ${remainingIncome}</h4>
       </div>
     )
   }
