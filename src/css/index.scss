@@ -1,4 +1,6 @@
 body {
+  background-image: url(./background.jpg);
+  background-size: cover;
   font-family: sans-serif;
   margin: 0;
   padding: 0;
@@ -8,7 +10,23 @@ body {
   margin: 30px;
 }
 
-.format, .billist, .monthlyCard {
+nav, h1 {
+  color: white;
+}
+
+h4 {
+  background: white;
+}
+
+.form {
+  background-color: rgba(255, 255, 255, .6);
+}
+
+.auth-form {
+  background-color: rgb(255, 255, 255)
+}
+
+.billist, .format, .monthlyCard {
   text-align: center;
 }
 
