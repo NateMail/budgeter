@@ -36,8 +36,7 @@ plug and play until I was able to get the correct response I needed.
 https://imgur.com/a/Z4SQiMZ
 
 ### ScreenShot
-<img width="1440" alt="budgeter" src="https://user-images.githubusercontent.com/47150797/59062001-c5efff00-8872-11e9-84c3-03d0fd4fbe0c.png">
-
+<img width="1440" alt="budgeter-screenshot" src="https://user-images.githubusercontent.com/47150797/59105763-abfdfd00-8902-11e9-9426-ae1b5a2d76d1.png">
 
 ### Instructions
 fork and clone this repo and npm install
