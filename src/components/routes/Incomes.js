@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { withRouter, Link } from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
+import Card from 'react-bootstrap/Card'
+import ListGroup from 'react-bootstrap/ListGroup'
 
 import apiUrl from '../../apiConfig'
 
@@ -54,18 +56,18 @@ class Incomes extends Component {
             type="button"
             className="m-1"
           >
-        Update
+          Update
           </Button>
         </Link>
       </div>
     ))
 
     const bill = this.state.bill.map(bill => (
-      <div key={bill.id}>
-        <h3>  {bill.name} </h3>
-        <h5> $ {bill.amount} </h5>
-        <h5> Bill is due: {bill.due}  </h5>
-      </div>
+      <ListGroup key={bill.id} className="billist">
+        <ListGroup.Item variant="secondary">  {bill.name} </ListGroup.Item>
+        <ListGroup.Item variant="secondary"> $ {bill.amount} </ListGroup.Item>
+        <ListGroup.Item variant="secondary"> Bill is due: {bill.due}  </ListGroup.Item>
+      </ListGroup>
     ))
 
     let total = 0
@@ -80,31 +82,36 @@ class Incomes extends Component {
     monthlyincome = Math.floor(monthlyincome * 100) / 100
 
     const remainingIncome = monthlyincome - total
+
     return (
       <div>
-        <h3>Your Monthly Income</h3>
-        <ul>{monthly}</ul>
-        <h4>Your remaining income is: ${remainingIncome}</h4>
-        <h4>Your Bills</h4>
+        <Card className="monthlyCard">
+          <Card.Body><h3>Your Monthly Income</h3></Card.Body>
+          <Card.Body>{monthly}</Card.Body>
+          <Card.Body className="remaining"> Your remaining income is: ${remainingIncome}</Card.Body>
+        </Card>
+        <div className="format">
+          <h4>Your Bills</h4>
+          <Link to={'/bills'} >
+            <Button
+              variant="success"
+              type="button"
+              className="m-1"
+            >
+            Edit Bills
+            </Button>
+          </Link>
+          <Link to={'/create-bills'} >
+            <Button
+              variant="info"
+              type="button"
+              className="m-1 editBill"
+            >
+            Add Bills
+            </Button>
+          </Link>
+        </div>
         <ul>{bill}</ul>
-        <Link to={'/bills'} >
-          <Button
-            variant="success"
-            type="button"
-            className="m-1"
-          >
-          Edit Bills
-          </Button>
-        </Link>
-        <Link to={'/create-bills'} >
-          <Button
-            variant="info"
-            type="button"
-            className="m-1"
-          >
-          Add Bills
-          </Button>
-        </Link>
       </div>
     )
   }

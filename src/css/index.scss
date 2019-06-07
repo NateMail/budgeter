@@ -7,3 +7,12 @@ body {
 .alert {
   margin: 30px;
 }
+
+.format, .billist, .monthlyCard {
+  text-align: center;
+}
+
+.remaining{
+  color: green;
+  font-size: 32px;
+}

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { withRouter, Redirect, Link } from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
+import Card from 'react-bootstrap/Card'
 
 import apiUrl from '../../apiConfig'
 
@@ -45,28 +46,32 @@ class Bills extends Component {
 
   render () {
     const bill = this.state.bill.map(bill => (
-      <li key={bill.id}>
-        <h3>  {bill.name} </h3>
-        <h5> $ {bill.amount} </h5>
-        <h5>  {bill.due}  </h5>
+      <Card key={bill.id}>
+        <Card.Body>  {bill.name} </Card.Body>
+        <Card.Body> $ {bill.amount} </Card.Body>
+        <Card.Body> Bill is due: {bill.due}  </Card.Body>
         <Button
           variant="danger"
           type="button"
           className="m-1"
+          size="lg"
           onClick={() => this.handleDelete(bill.id)}
+          block
         >
         Delete
         </Button>
         <Link to={`/bills/${bill.id}`} >
           <Button
             variant="info"
+            size="lg"
             type="button"
             className="m-1"
+            block
           >
         Update
           </Button>
         </Link>
-      </li>
+      </Card>
     ))
 
     const { deleted } = this.state
