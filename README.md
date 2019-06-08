@@ -5,6 +5,13 @@ The user will input ane income and a date it was deposited on.  The user will th
 add bills that will subtract from the total income.  The user will be able to monitor
 their income based on how the amount of bills they have and the amount of those bills.
 
+### User Stories
+The user will log in and be able to add a monthly income.  The user will be able
+to only update that monthly income afterwards.  The user will be able to add monthly
+bills to their account.  The user will be able to update and delete their bills.
+The user will be able to sign in, change password, and sign out.  The user will also
+only be able to see their own bills not anyone elses.
+
 #### Client Repo and Deployed Site
 Repo: https://github.com/NateMail/budgeter
 
