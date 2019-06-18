@@ -74,7 +74,7 @@ class BillEdit extends Component {
             name="name"
             required
             onChange={this.handleChange}
-            placeholder='Enter new bill name'
+            placeholder='Enter bills new name'
           />
         </Form.Group>
         <Form.Group controlId="billAmount">
@@ -84,7 +84,7 @@ class BillEdit extends Component {
             value={this.amount}
             name="amount"
             required
-            placeholder="Enter new bill amount"
+            placeholder="Enter bills new amount"
             onChange={this.handleChange}
           />
         </Form.Group>

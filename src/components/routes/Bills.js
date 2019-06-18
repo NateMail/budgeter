@@ -46,31 +46,31 @@ class Bills extends Component {
 
   render () {
     const bill = this.state.bill.map(bill => (
-      <Card key={bill.id}>
+      <Card key={bill.id} className="billsCard">
         <Card.Body>  {bill.name} </Card.Body>
         <Card.Body> $ {bill.amount} </Card.Body>
         <Card.Body> Bill is due: {bill.due}  </Card.Body>
-        <Button
-          variant="danger"
-          type="button"
-          className="m-1"
-          size="lg"
-          onClick={() => this.handleDelete(bill.id)}
-          block
-        >
-        Delete
-        </Button>
-        <Link to={`/bills/${bill.id}`} >
+        <div>
           <Button
-            variant="info"
-            size="lg"
+            variant="danger"
             type="button"
             className="m-1"
-            block
+            size="sm"
+            onClick={() => this.handleDelete(bill.id)}
           >
-        Update
+          Delete
           </Button>
-        </Link>
+          <Link to={`/bills/${bill.id}`} >
+            <Button
+              variant="info"
+              size="sm"
+              type="button"
+              className="m-1"
+            >
+          Update
+            </Button>
+          </Link>
+        </div>
       </Card>
     ))
 
@@ -91,7 +91,6 @@ class Bills extends Component {
     }
     return (
       <div>
-        <h3>All your Bills</h3>
         <ul>{bill}</ul>
         <Link to={'/monthlies'} >
           <Button

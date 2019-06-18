@@ -8,8 +8,6 @@ const authenticatedOptions = (
     <Link to="/change-password">Change Password</Link>
     <Link to="/sign-out">Sign Out</Link>
     <Link to="/create-monthlies">Income Create</Link>
-    <Link to='/bills'>Edit Bills</Link>
-    <Link to='/create-bills'>Add A Bill</Link>
   </React.Fragment>
 )
 

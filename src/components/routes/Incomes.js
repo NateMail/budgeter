@@ -90,28 +90,32 @@ class Incomes extends Component {
           <Card.Body>{monthly}</Card.Body>
           <Card.Body className="remaining"> Your remaining income is: ${remainingIncome}</Card.Body>
         </Card>
-        <div className="format">
-          <h4>Your Bills</h4>
-          <Link to={'/bills'} >
-            <Button
-              variant="success"
-              type="button"
-              className="m-1"
-            >
-            Edit Bills
-            </Button>
-          </Link>
-          <Link to={'/create-bills'} >
-            <Button
-              variant="info"
-              type="button"
-              className="m-1 editBill"
-            >
-            Add Bills
-            </Button>
-          </Link>
-        </div>
-        <ul>{bill}</ul>
+        <Card className="billsDisplay">
+          <Card.Body><h4>Your Bills</h4></Card.Body>
+          <div className="billDisplayButtons">
+            <Link to='/create-bills'>
+              <Button
+                variant="success"
+                size="sm"
+                type="button"
+                className="m-1"
+              >
+            Create Bill
+              </Button>
+            </Link>
+            <Link to='/bills'>
+              <Button
+                variant="info"
+                size="sm"
+                type="button"
+                className="m-1"
+              >
+            Edit bills
+              </Button>
+            </Link>
+          </div>
+          <Card.Body>{bill}</Card.Body>
+        </Card>
       </div>
     )
   }

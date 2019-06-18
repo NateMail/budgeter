@@ -1,8 +1,16 @@
+
+$transparentWhite: rgba(255, 255, 255, .6);
+
 body {
   background-image: url(./background.jpg);
   font-family: sans-serif;
   margin: 0;
   padding: 0;
+}
+
+.billsDisplay {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .alert {
@@ -14,17 +22,30 @@ body {
   opacity: .7;
 }
 
+.billDisplayButtons{
+  padding-left: 41%;
+}
+
+
 nav, h1 {
   color: white;
 }
 
 h4 {
   background: white;
+  text-align: center;
+}
+
+.billsCard {
+  margin: 10px;
+  text-align: center;
 }
 
 .form {
-  background-color: rgba(255, 255, 255, .6);
+  background-color: $transparentWhite;
+  border-radius: 3%;
   margin-top: 10px;
+  text-align: center;
 }
 
 
