@@ -9,6 +9,11 @@ body {
   margin: 30px;
 }
 
+.main-header {
+  background-color: #000;
+  opacity: .7;
+}
+
 nav, h1 {
   color: white;
 }
@@ -19,13 +24,12 @@ h4 {
 
 .form {
   background-color: rgba(255, 255, 255, .6);
+  margin-top: 10px;
 }
 
-.auth-form {
-  background-color: rgb(255, 255, 255)
-}
 
 .billist, .format, .monthlyCard {
+  margin-top: 10px;
   text-align: center;
 }
 
