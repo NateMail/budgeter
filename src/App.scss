@@ -1,7 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Dosis&display=swap');
 $success: #c7f282;
 $warning: #f1e681;
 $error: #f08181;
 $charcoal: #ccc;
+$black: #000;
+$shadow: rgba(0, 0, 0, .5);
+$white: #fff;
+$yellow: #f2f27a;
 
 .flash-success,
 .flash-warning,
@@ -30,11 +35,16 @@ $charcoal: #ccc;
 }
 
 .auth-form {
+  background-color: $yellow;
+  border-radius: 3%;
+  box-shadow: 5px 8px $shadow;
   display: flex;
   flex-direction: column;
+  font-family: 'Dosis', sans-serif;
   justify-content: center;
   margin: 15% auto 0;
   max-width: 600px;
+  text-align: center;
 
   h3,
   input {
@@ -42,7 +52,10 @@ $charcoal: #ccc;
   }
 
   button {
-    align-self: flex-end;
+    background-color: $black;
+    color: $white;
+    display: block;
+    margin-left: 34%;
     max-width: 200px;
   }
 }
