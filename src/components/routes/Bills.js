@@ -47,10 +47,10 @@ class Bills extends Component {
   render () {
     const bill = this.state.bill.map(bill => (
       <Card key={bill.id} className="billsCard">
-        <Card.Body>  {bill.name} </Card.Body>
-        <Card.Body> $ {bill.amount} </Card.Body>
-        <Card.Body> Bill is due: {bill.due}  </Card.Body>
-        <div>
+        <Card.Body className="billsCardInner">  {bill.name} </Card.Body>
+        <Card.Body className="billsCardInner"> $ {bill.amount} </Card.Body>
+        <Card.Body className="billsCardInner"> Bill is due: {bill.due}  </Card.Body>
+        <div className="billsCardInner">
           <Button
             variant="danger"
             type="button"

@@ -64,9 +64,9 @@ class Incomes extends Component {
 
     const bill = this.state.bill.map(bill => (
       <ListGroup key={bill.id} className="billist">
-        <ListGroup.Item variant="secondary">  {bill.name} </ListGroup.Item>
-        <ListGroup.Item variant="secondary"> $ {bill.amount} </ListGroup.Item>
-        <ListGroup.Item variant="secondary"> Bill is due: {bill.due}  </ListGroup.Item>
+        <ListGroup.Item>  {bill.name} </ListGroup.Item>
+        <ListGroup.Item> $ {bill.amount} </ListGroup.Item>
+        <ListGroup.Item> Bill is due: {bill.due}  </ListGroup.Item>
       </ListGroup>
     ))
 
