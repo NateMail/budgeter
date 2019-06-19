@@ -14,22 +14,24 @@ class Incomes extends Component {
     this.state = {
       monthly: [],
       deleted: false,
-      bill: []
+      bill: [],
+      deposited: null,
+      income: null
     }
   }
 
-  componentDidMount () {
-    axios({
+  async componentDidMount () {
+    const response = await axios({
       url: `${apiUrl}/monthlies`,
       method: 'GET',
       headers: {
         'Authorization': `Token token=${this.props.user.token}`
       }
     })
-      .then(res => {
-        this.setState({ monthly: res.data.monthlies })
-      })
-      .catch(console.error)
+    this.setState({ monthly: response.data.monthlies })
+    response.data.monthlies.forEach(month => {
+      this.setState({ income: month.income, deposited: month.deposited })
+    })
   }
 
   bill =
@@ -83,11 +85,24 @@ class Incomes extends Component {
 
     const remainingIncome = monthlyincome - total
 
+    let billsBeforeDeposited = 0
+
+    this.state.bill.forEach(bill => {
+      if (bill.due <= this.state.deposited) {
+        billsBeforeDeposited += parseInt(bill.amount)
+        return billsBeforeDeposited
+      }
+      return billsBeforeDeposited
+    })
+
+    const final = this.state.income - billsBeforeDeposited
+
     return (
       <div>
         <Card className="monthlyCard">
           <Card.Body><h3>Your Monthly Income</h3></Card.Body>
           <Card.Body>{monthly}</Card.Body>
+          <Card.Body>The amount before your next depsosite is ${final}</Card.Body>
           <Card.Body className="remaining"> Your remaining income is: ${remainingIncome}</Card.Body>
         </Card>
         <Card className="billsDisplay">
