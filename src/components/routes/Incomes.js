@@ -124,7 +124,7 @@ class Incomes extends Component {
     }
 
     console.log(work, originalDeposite)
-
+    // if orgDate > 29 when thisMonth === 29 work = parseInt(final) + parseInt(this.state.income)
     // console.log('month', orgMonth, 'Date', orgDate, 'Year', orgYear, 'Todays Date', todaysDate, 'this month', thisMonth, 'this year', thisYear)
 
     return (
