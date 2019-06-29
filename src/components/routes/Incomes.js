@@ -97,12 +97,43 @@ class Incomes extends Component {
 
     const final = this.state.income - billsBeforeDeposited
 
+    const today = new Date()
+    const thisMonth = today.getMonth()
+    const todaysDate = today.getDate()
+    const thisYear = today.getFullYear()
+
+    let originalDeposite = this.state.deposited
+    if (originalDeposite !== null) {
+      originalDeposite = new Date(originalDeposite)
+    }
+    let orgMonth = 'a'
+    let orgDate = 'b'
+    let orgYear = 'c'
+
+    if (originalDeposite !== null) {
+      orgMonth = originalDeposite.getMonth()
+      orgDate = originalDeposite.getDate()
+      orgYear = originalDeposite.getFullYear()
+    }
+
+    let work = 0
+    if (typeof (orgMonth && orgDate && orgYear) === 'number') {
+      if ((thisMonth > orgMonth && todaysDate >= orgDate) || (thisMonth < orgMonth && todaysDate >= orgDate && thisYear > orgYear)) {
+        work = parseInt(final) + parseInt(this.state.income)
+      }
+    }
+
+    console.log(work, originalDeposite)
+
+    // console.log('month', orgMonth, 'Date', orgDate, 'Year', orgYear, 'Todays Date', todaysDate, 'this month', thisMonth, 'this year', thisYear)
+
     return (
       <div>
         <Card className="monthlyCard">
           <Card.Body><h3>Your Monthly Income</h3></Card.Body>
           <Card.Body>{monthly}</Card.Body>
-          <Card.Body>The amount before your next depsosite is ${final}</Card.Body>
+          <Card.Body>The amount before your next deposite is ${final}</Card.Body>
+          <Card.Body>Your total income ${work}</Card.Body>
           <Card.Body className="remaining"> Your remaining income is: ${remainingIncome}</Card.Body>
         </Card>
         <Card className="billsDisplay">
